@@ -1,0 +1,36 @@
+{
+  "name": "Fairswap",
+  "devDependencies": {
+    "@openzeppelin/contracts": "^3.0.1",
+    "@openzeppelin/test-helpers": "^0.5.5",
+    "@truffle/hdwallet-provider": "^1.0.35",
+    "dotenv": "^8.2.0",
+    "ganache-cli": "^6.9.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.1",
+    "prettier": "^2.0.5",
+    "prettier-plugin-solidity": "^1.0.0-alpha.52",
+    "solc": "0.6.6",
+    "solhint-plugin-prettier": "0.0.4",
+    "truffle": "^5.1.21",
+    "truffle-typings": "^1.0.8",
+    "ts-node": "^8.8.1",
+    "web3-utils": "^1.2.6"
+  },
+  "scripts": {
+    "compile": "npx truffle compile",
+    "coverage": "npx truffle run coverage --network coverage",
+    "test:mine_for_every_tx": "npx truffle test test/mine_for_every_tx/**/*.js",
+    "test:mine_on_interval": "npx truffle test test/mine_on_interval/**/*.js",
+    "test:greedy_test": "npx truffle test test/greedy_test/*.js",
+    "ganache:mine_for_every_tx": "ganache-cli --port 7545 --gasLimit 9007199254740991 -e 1000",
+    "ganache:mine_on_interval": "ganache-cli --port 7545 -b 1 --gasLimit 9007199254740991 -e 1000",
+    "prettier:solidity": "npx prettier --write 'contracts/**/*.sol'",
+    "prettier:test": "npx prettier --write test/**/*.js",
+    "prettier": "yarn prettier:solidity || yarn prettier:test"
+  },
+  "dependencies": {
+    "bignumber.js": "^9.0.0",
+    "solidity-coverage": "^0.7.9"
+  }
+}
